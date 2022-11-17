@@ -9,7 +9,7 @@ class ysSubclassRegistry {
     using ConstructorFn = AbstractClass*(Args...);
     static constexpr size_t num_subclasses = static_cast<size_t>(Enum::MAX_ENUM) - 1;
 
-    std::array<ConstructorFn*, num_subclasses> m_constructors;
+    std::array<ConstructorFn*, num_subclasses + 1> m_constructors;
 
     template<typename Subclass, typename... _Args>
     friend struct ysRegisterSubclass;
