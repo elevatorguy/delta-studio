@@ -1,0 +1,3 @@
+[submodule "dependencies/libraries/sse2neon"]
+	path = dependencies/libraries/sse2neon
+	url = https://github.com/DLTcollab/sse2neon.git
