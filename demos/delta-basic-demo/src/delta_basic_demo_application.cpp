@@ -199,10 +199,16 @@ void delta_demo::DeltaBasicDemoApplication::Render() {
             break;
         }
     }
+    static bool toggle = false;
+    if (m_engine.ProcessKeyDown(ysKey::Code::OEM_3)) {
+        toggle = !toggle;
+    }
 
     std::stringstream msg;
-    msg << "FPS " << m_engine.GetAverageFramerate() << "\n";
-    msg << screenWidth << "x" << screenHeight << "\n";
+    if (toggle) {
+        msg << "FPS " << m_engine.GetAverageFramerate() << "\n";
+        msg << screenWidth << "x" << screenHeight << "\n";
+    }
     console->DrawGeneralText(msg.str().c_str());
 }
 
