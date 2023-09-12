@@ -60,6 +60,8 @@ const ysKey::Code *ysKeyMaps::GetSdlKeyMap() {
         m_sdlKeyMap[SDL_SCANCODE_RSHIFT] = ysKey::Code::Shift;
 
         m_sdlKeyMap[SDL_SCANCODE_COMMA] = ysKey::Code::OEM_Comma;
+        
+        m_sdlKeyMap[SDL_SCANCODE_GRAVE] = ysKey::Code::OEM_3;
     }
 
     return m_sdlKeyMap;
