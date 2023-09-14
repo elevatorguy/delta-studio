@@ -15,6 +15,7 @@ ysSdlInputSystem::~ysSdlInputSystem() {
 }
 
 void ysSdlInputSystem::ProcessEvent(const SDL_Event &event) {
+    firstEvent = true;
     switch (event.type) {
         case SDL_KEYDOWN:
         case SDL_KEYUP: {

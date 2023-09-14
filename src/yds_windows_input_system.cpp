@@ -228,6 +228,7 @@ ysWindowsInputDevice *ysWindowsInputSystem::AddDevice(RAWINPUT *rawInput) {
 }
 
 int ysWindowsInputSystem::ProcessInputMessage(HRAWINPUT lparam) {
+    firstEvent = true;
     UINT dwSize;
     LPBYTE lpb;
 

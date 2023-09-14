@@ -210,7 +210,7 @@ void delta_demo::DeltaBasicDemoApplication::Run() {
     while (m_engine.IsOpen()) {
         m_engine.StartFrame();
 
-        if (m_engine.IsKeyDown(ysKey::Code::Escape)) {
+        if (m_engine.IsKeyDown(ysKey::Code::Escape) || m_engine.shouldExit()) {
             break;
         }
 

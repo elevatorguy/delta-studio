@@ -151,6 +151,8 @@ namespace dbasic {
 
         ysRenderTarget *GetScreenRenderTarget() const { return m_mainRenderTarget; }
 
+	    bool shouldExit(void);
+
     protected:
         ysDevice *m_device;
 
@@ -233,6 +235,8 @@ namespace dbasic {
         ysError ExecuteShaderStage(int stageIndex);
 
         void ClearDrawQueue();
+    private:
+        uint8_t idleSeconds = 120;
     };
 
 } /* namesapce dbasic */

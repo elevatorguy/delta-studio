@@ -48,7 +48,7 @@ public:
 
     bool IsGlobalInputEnabled() const { return m_enableGlobalInput; }
     void SetGlobalInputEnabled(bool enabled) { m_enableGlobalInput = enabled; }
-
+    bool firstEvent = false;
 protected:
     // Create and register input devices. This function must be called
     // before any input can be processed.

@@ -11,6 +11,7 @@
 #include <stb/stb_truetype.h>
 
 #include <assert.h>
+#include <iostream>
 
 const std::string dbasic::DeltaEngine::FrameBreakdownFull = "Frame Full";
 const std::string dbasic::DeltaEngine::FrameBreakdownRenderScene = "Scene";
@@ -634,6 +635,23 @@ int dbasic::DeltaEngine::GetScreenWidth() const {
 
 int dbasic::DeltaEngine::GetScreenHeight() const {
     return m_gameWindow->GetGameHeight();
+}
+
+bool dbasic::DeltaEngine::shouldExit() {
+    static uint64_t start = SystemTime();
+    uint64_t now = SystemTime();
+    static bool notice = true;
+    if (notice && (now - start > (idleSeconds/2)*1000*1000) && !m_inputSystem->firstEvent)    
+    {
+        std::cout << "INFO: input yet to be recognized" << std::endl;
+        std::cout << "NOTICE: exiting in " << (idleSeconds/2) << " second(s) (idle)" << std::endl;
+        notice = false;
+    }
+    if ( (now - start > idleSeconds*1000*1000) && !m_inputSystem->firstEvent) {
+	    return true;
+    }
+
+    return false;
 }
 
 ysError dbasic::DeltaEngine::DrawSaq(StageEnableFlags flags) {
