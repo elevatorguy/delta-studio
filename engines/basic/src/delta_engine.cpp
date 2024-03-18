@@ -422,7 +422,12 @@ dbasic::DeltaEngine::InitializeShaders(const wchar_t *shaderDirectory,
                 (compiledPath + L"vs_standard.vert.compiled").c_str(),
                 "VS_STANDARD", compile));
         YDS_NESTED_ERROR_CALL(m_device->CreateVertexShader(
-                &m_vertexShader,
+            &m_vertexSkinnedShader,
+            (basePath + L"/glsl/delta_engine_shader.vert").c_str(),
+            (compiledPath + L"vs_skinned.vert.compiled").c_str(),
+            "VS_SKINNED", compile));
+        YDS_NESTED_ERROR_CALL(m_device->CreatePixelShader(
+                &m_pixelShader,
                 (basePath + L"/glsl/delta_engine_shader.frag").c_str(),
                 (compiledPath + L"ps_standard.frag.compiled").c_str(), "PS",
                 compile));
@@ -432,7 +437,7 @@ dbasic::DeltaEngine::InitializeShaders(const wchar_t *shaderDirectory,
                 (basePath + L"/glsl/delta_console_shader.vert").c_str(),
                 (compiledPath + L"vs_console.vert.compiled").c_str(),
                 "VS_CONSOLE", compile));
-        YDS_NESTED_ERROR_CALL(m_device->CreateVertexShader(
+        YDS_NESTED_ERROR_CALL(m_device->CreatePixelShader(
                 &m_consolePixelShader,
                 (basePath + L"/glsl/delta_console_shader.frag").c_str(),
                 (compiledPath + L"ps_console.frag.compiled").c_str(),
@@ -443,7 +448,7 @@ dbasic::DeltaEngine::InitializeShaders(const wchar_t *shaderDirectory,
                 (basePath + L"/glsl/delta_saq_shader.vert").c_str(),
                 (compiledPath + L"vs_saq.vert.compiled").c_str(), "VS_SAQ",
                 compile));
-        YDS_NESTED_ERROR_CALL(m_device->CreateVertexShader(
+        YDS_NESTED_ERROR_CALL(m_device->CreatePixelShader(
                 &m_saqPixelShader,
                 (basePath + L"/glsl/delta_saq_shader.frag").c_str(),
                 (compiledPath + L"ps_saq.frag.compiled").c_str(), "PS_SAQ",
